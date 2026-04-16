@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Journey with Tino</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0a0f1c;
+  color:#fff;
+  text-align:center;
+}
+
+.container {
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+  display:none;
+}
+
+h1 {
+  font-size:2.3em;
+  background:linear-gradient(90deg,#00ffd5,#00aaff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.card {
+  background:rgba(255,255,255,0.06);
+  margin:20px 0;
+  padding:22px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+}
+
+input {
+  width:85%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  margin:8px 0;
+}
+
+.btn {
+  display:inline-block;
+  margin-top:10px;
+  padding:14px 28px;
+  border-radius:40px;
+  background:linear-gradient(90deg,#00ffd5,#00aaff);
+  color:#000;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.small {
+  font-size:12px;
+  opacity:0.7;
+}
+
+.highlight {
+  color:#00ffd5;
+  font-weight:bold;
+}
+
+#gate {
+  padding:50px 20px;
+}
+
+#status {
+  margin-top:10px;
+  font-weight:bold;
+}
+
+iframe {
+  width:100%;
+  height:220px;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+#liveText {
+  transition: all 0.5s ease;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LEAD GATE -->
+<div id="gate">
+  <h1>🚀 Unlock The System</h1>
+
+  <p>Enter your details to access the full step-by-step guide</p>
+
+  <form id="leadForm" action="https://formspree.io/f/xkokjoqp" method="POST">
+
+    <input type="text" name="name" placeholder="Your Name (optional)">
+    <input type="email" name="email" placeholder="Your Email (required)" required>
+
+    <input type="hidden" name="_subject" value="New Lead - Funnel Access (Tino Fetuli)">
+    <input type="hidden" name="funnel" value="Elite Income Funnel V10">
+    <input type="hidden" name="referrer" value="Richard Vaalotu">
+
+    <button class="btn" id="submitBtn" type="submit">
+      Unlock Access 🚀
+    </button>
+
+    <div id="status"></div>
+  </form>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container" id="main">
+
+<h1>🚀 This Opportunity Is Different</h1>
+
+<p>Earn weekly & monthly without selling products.</p>
+
+<!-- LIVE ACTIVITY -->
+<div class="card">
+  <h2>🔴 Live Activity</h2>
+
+  <p id="liveText" class="highlight">Loading activity...</p>
+
+  <p class="small">Real-time system updates</p>
+
+  <p class="small">
+    👥 Current viewers: <span id="viewerCount">0</span>
+  </p>
+</div>
+
+<!-- STEP 1 -->
+<div class="card">
+  <h2>📍 Step 1: Join Community</h2>
+
+  <p>Use this exact referrer name:</p>
+  <p class="highlight">Tino Fetuli</p>
+
+  <a href="https://reachforthestarsandearn.com/" class="btn" target="_blank">
+    Join Info Page
+  </a>
+
+  <p class="small">Approval may take 24–48 hours</p>
+</div>
+
+<!-- STEP 2 -->
+<div class="card">
+  <h2>📍 Step 2: Secure Your Spot</h2>
+
+  <p class="highlight">
+    When you are ready, have your VISA 💳 or MASTERCARD 💳 ready.
+  </p>
+
+  <p class="highlight" style="font-size:18px;">
+    Become a Member & Affiliate for $49.95
+  </p>
+
+  <p class="small">
+    Instant access to training + affiliate system after joining
+  </p>
+
+  <a href="https://livegoodtour.com/SuccessWithTino" class="btn" target="_blank">
+    💳 Join with Visa / Mastercard
+  </a>
+</div>
+
+<!-- SOCIAL -->
+<div class="card">
+  <h2>🎥 Live Q&A & Support</h2>
+
+  <a class="btn" href="https://www.tiktok.com/@successleader09" target="_blank">
+    Follow Tino
+  </a>
+  
+  <a class="btn" href="https://www.tiktok.com/@richardvaalotu" target="_blank">
+    Follow Richard
+  </a>
+
+  <!-- FACEBOOK BUTTON ADDED -->
+  <a class="btn" href="https://www.facebook.com/share/1CpT6VPa4y/" target="_blank">
+    Follow on Facebook
+  </a>
+
+</div>
+
+<!-- TRAINING -->
+<div class="card">
+  <h2>🔥 Training Videos</h2>
+
+  <iframe src="https://www.youtube.com/embed/Bd1EkHHfegM"></iframe>
+  <iframe src="https://www.youtube.com/embed/7sOD814A_tw"></iframe>
+
+  <br>
+  <h2>🔥 Must Watch Video</h2>
+  <iframe src="https://www.youtube.com/embed/7MBITM_dN8c"></iframe>
+</div>
+
+</div>
+
+<script>
+// FORM
+const form = document.getElementById("leadForm");
+const btn = document.getElementById("submitBtn");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+
+  const data = new FormData(form);
+  const email = data.get("email");
+
+  btn.innerHTML = "Sending...";
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(form.action, {
+      method:"POST",
+      body:data,
+      headers:{ "Accept":"application/json" }
+    });
+
+    if(res.ok){
+      localStorage.setItem("email", email);
+      localStorage.setItem("name", data.get("name") || "");
+
+      status.innerHTML = "✅ Access granted... loading";
+
+      setTimeout(()=>{
+        document.getElementById("gate").style.display="none";
+        document.getElementById("main").style.display="block";
+      },900);
+
+    } else {
+      throw new Error();
+    }
+
+  } catch(err){
+    status.innerHTML = "❌ Try again";
+    btn.innerHTML = "Unlock Access 🚀";
+    btn.disabled = false;
+  }
+});
+
+// AUTO UNLOCK
+if(localStorage.getItem("email")){
+  document.getElementById("gate").style.display="none";
+  document.getElementById("main").style.display="block";
+}
+
+// LIVE SYSTEM
+const messages = [
+  "Someone from TikTok just joined the system",
+  "New member unlocked Step 1",
+  "A user is watching training videos",
+  "Affiliate just activated access",
+  "New signup from mobile traffic",
+  "System activity increasing..."
+];
+
+let index = 0;
+
+function rotateLive(){
+  const el = document.getElementById("liveText");
+  if(!el) return;
+
+  el.style.opacity = 0;
+
+  setTimeout(()=>{
+    el.innerText = messages[index];
+    el.style.opacity = 1;
+    index = (index + 1) % messages.length;
+  },400);
+}
+
+setInterval(rotateLive, 3500);
+rotateLive();
+
+// COUNTER
+let base = localStorage.getItem("baseCount");
+
+if(!base){
+  base = Math.floor(Math.random() * 25) + 40;
+  localStorage.setItem("baseCount", base);
+}
+
+function updateViewers(){
+  const el = document.getElementById("viewerCount");
+  if(!el) return;
+
+  let current = parseInt(localStorage.getItem("liveCount") || base);
+
+  if(Math.random() > 0.7){
+    current += 1;
+  }
+
+  localStorage.setItem("liveCount", current);
+  el.innerText = current;
+}
+
+setInterval(updateViewers, 4000);
+updateViewers();
+</script>
+
+</body>
+</html>
